@@ -2,7 +2,7 @@ limit=float(input())
 n=int(input())
 error=0
 prevish=0
-peak=0.0
+peak=-10000000000.0
 srznach=0.0
 sum=0.0
 
