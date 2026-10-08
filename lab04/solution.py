@@ -12,4 +12,14 @@ def average(scores: list[float]) -> float:
         return ""
     return round(sum(scores)/len(scores),2)
 
-def
+def ranking(names: list[str], scores: list[float]) -> list[str]:
+    index= sorted(range())
+
+
+def above_average(names: list[str], scores: list[float]) -> list[str]:
+    srednee = average(scores)
+    res=[]
+    for i in range(len(scores)):
+        if scores[i]>srednee:
+            res.append(names[i])
+    return(res)
