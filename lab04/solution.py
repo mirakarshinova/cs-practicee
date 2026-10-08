@@ -29,3 +29,11 @@ def above_average(names: list[str], scores: list[float]) -> list[str]:
         if scores[i]>srednee:
             res.append(names[i])
     return(res)
+'''
+names=["Аня","Боря","Вика"]
+scores=[7.0, 9.0, 9.0]
+print(winner(names,scores))
+print(average(scores))
+print(ranking(names,scores))
+print(above_average(names,scores))
+'''
