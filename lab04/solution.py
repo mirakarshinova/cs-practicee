@@ -9,12 +9,12 @@ def winner(names, scores) :
 
 def average(scores) :
     if not scores:
-        return ""
+        return 0.0
     return round(sum(scores)/len(scores),2)
 
 def ranking(names, scores) :
-    sortedind=sorted(zip(names,scores),key=lambda s:s[1],reverse=True)
-    return[name  for name, scores in sortedind]
+    sortnameindrev=sorted(zip(names,scores),key=lambda s:s[1],reverse=True)
+    return[names  for names, score in sortnameindrev]
 
 
 def above_average(names, scores):
