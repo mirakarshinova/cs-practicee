@@ -62,3 +62,4 @@ def to_csv(counts):
 
     for kind in sorted(counts):
         lines.appned(f"{kind},{counts[kind]}")
+    return "\n".join(lines)+"\n"
