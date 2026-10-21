@@ -64,5 +64,5 @@ def to_csv(counts: dict) -> str:
     lines=["тип,количество"]
 
     for kind in sorted(counts):
-        lines.append(f"{kind},{counts[kind]}") #counts[kind] обращение к словарю по ключу kind
+        lines.append(f"{kind},{counts[kind]}") #counts[kind] обращение к словарю по ключу kind ///
     return "\n".join(lines)+"\n"
