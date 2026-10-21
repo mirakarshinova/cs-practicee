@@ -19,11 +19,12 @@ def read_rows(lines):
             continue
 
         #список словарей
-        row={}
-        for i in range(len(header)):
-            row[header[i]]=parts[i] #записать значение под ключом заголовка
-        rows.append(row)
+        #заполняем массив строк (dict(zip) -- автоматически создает словарь с ключами из header и значениями из parts). 
+        # Итог: rows список строк с словарями внутри
+        rows.append(dict(zip(header, parts)))
     return rows
+
+
 
 #считает сколько записей каждого типа
 def count_types(rows):
@@ -33,33 +34,35 @@ def count_types(rows):
         #достать значение из  словаря по ключу ТИП
         kind=row.get("тип")
 
-        if kind is None:
-            continue
         if kind not in counts:
-            counts[kind]=0
+            counts[kind]=0 #если тип встретился впервые добавляем в словарь со значением 0
         counts[kind]+=1
+        #counts[kind] = counts.get(kind, 0) + 1  добавляем тип если он уже есть в словаре со зачением его +1, если нет - со значением 0 +1
     return counts
 
 #суммарные минуты записей одного типа, округлить до десятых
-def total_minutes(rows, kind):
+def total_minutes(rows: list[dict], kind: str)-> float:
     total=0.0
 
     for row in rows:
         if row.get("тип")!= kind:
             continue
 
-        value=row.get("минуты","")
+        value=row.get("минуты","") #вернуть пустое если ключа минуты нет
         try:
             minutes=float(value.replace(",","."))
+            #minutes =  float(row['минуты'].replace(",", "."))
         except ValueError:
             continue
 
         total+= minutes
     return round(total,1)
 
-def to_csv(counts):
+
+#сводка текстом CSV: заголовок тип,количество, строки по алфавиту
+def to_csv(counts: dict) -> str:
     lines=["тип,количество"]
 
     for kind in sorted(counts):
-        lines.appned(f"{kind},{counts[kind]}")
+        lines.append(f"{kind},{counts[kind]}") #counts[kind] обращение к словарю по ключу kind
     return "\n".join(lines)+"\n"
