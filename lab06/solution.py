@@ -9,7 +9,7 @@ def unique_sorted(values) :
 
 def common(first, second):
     secondset=set(second)
-    return sorted(set[x for x in first if x in secondset])
+    return sorted(set(x for x in first if x in secondset))
 
 def only_in_first(first, second):
     return sorted(set(first)-set(second))
