@@ -19,9 +19,9 @@ def column_means(matrix: list[list[float]]) -> list[float]:
     return np.round(arr.mean(axis=0),6).tolist()
 
 #размах значений в столбце: наибольшее минус наименьшее
-#def column_range(matrix: list[list[float]], column: int) -> float:
-#        arr = np.asarray(matrix, dtype=float)
-#        if arr.size ==0 :
+def column_range(matrix: list[list[float]], column: int) -> float:
+        arr = np.asarray(matrix, dtype=float)
+        if arr.size ==0 :
             return 0.0
         col = arr[:, column]
         return float(round(col.max()-col.min(),6))
