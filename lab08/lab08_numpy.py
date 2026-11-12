@@ -108,9 +108,9 @@ print( matrix)
 
 # Задание 6. Изменение формы
 
-#numbers = np.arange(12)
-#table = numbers.reshape(3, 4)
-#transposed = table.T
+numbers = np.arange(12)
+table = numbers.reshape(3, 4)
+transposed = table.T
 
 print( numbers)
 print(numbers.shape)
