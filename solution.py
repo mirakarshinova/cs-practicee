@@ -66,4 +66,5 @@ def celsius_to_fahrenheit(values: list[float]) -> list[float]:
 
     # Формула перевода: F = C * 9 / 5 + 32.
     # Broadcasting позволяет выполнить вычисление над каждым элементом без цикла.
+    
     return (arr * 9 / 5 + 32).tolist()
