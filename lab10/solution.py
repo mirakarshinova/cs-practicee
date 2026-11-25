@@ -50,4 +50,3 @@ def point_distance(first: list[float],
                    second: list[float]) -> float:
     distance = np.linalg.norm(np.array(first) - np.array(second))
     return round(float(distance), 6)
-#
