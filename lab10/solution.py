@@ -2,51 +2,42 @@
 import numpy as np
 
 
-def make_table(rows: int, columns: int) -> list[list[int]]:
+def make_table(rows, columns):
     return np.arange(rows * columns).reshape(rows, columns).tolist()
 
 
-def rectangle(matrix: list[list[float]],
-              row_start: int, row_stop: int,
-              column_start: int, column_stop: int) -> list[list[float]]:
+def rectangle(matrix, row_start, row_stop,column_start, column_stop):
     arr = np.array(matrix)
     return arr[row_start:row_stop, column_start:column_stop].tolist()
 
 
-def replace_rectangle(matrix: list[list[float]],
-                      row_start: int, row_stop: int,
-                      column_start: int, column_stop: int,
-                      value: float) -> list[list[float]]:
+def replace_rectangle(matrix,row_start, row_stop, column_start, column_stop, value) :
     arr = np.array(matrix).copy()
     arr[row_start:row_stop, column_start:column_stop] = value
     return arr.tolist()
 
 
-def matrix_vector_product(matrix: list[list[float]],
-                          vector: list[float]) -> list[float]:
+def matrix_vector_product(matrix, vector) :
     return (np.array(matrix) @ np.array(vector)).tolist()
 
 
-def matrix_multiply(left: list[list[float]],
-                    right: list[list[float]]) -> list[list[float]]:
+def matrix_multiply(left,right) :
     return (np.array(left) @ np.array(right)).tolist()
 
 
-def transpose_matrix(matrix: list[list[float]]) -> list[list[float]]:
+def transpose_matrix(matrix) :
     return np.array(matrix).T.tolist()
 
 
-def solve_system(matrix: list[list[float]],
-                 vector: list[float]) -> list[float]:
+def solve_system(matrix,vector):
     result = np.linalg.solve(np.array(matrix), np.array(vector))
     return np.round(result, 6).tolist()
 
 
-def tensor_channel_mean(tensor: list) -> list:
+def tensor_channel_mean(tensor) :
     return np.mean(np.array(tensor), axis=-1).tolist()
 
 
-def point_distance(first: list[float],
-                   second: list[float]) -> float:
+def point_distance(first, second) :
     distance = np.linalg.norm(np.array(first) - np.array(second))
     return round(float(distance), 6)
